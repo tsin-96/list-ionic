@@ -1,0 +1,36 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-button slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-button>
+        <ion-title>Add Game</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <form onsubmit="processFrm()">
+        <ion-list lines="full" class="ion-no-padding ion-no-margin">
+            <ion-item>
+                <ion-label position="stacked">Name
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required type="text" [(ngModel)]="name" oninput="handle1(event)" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Developer
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input required type="text" [(ngModel)]="dev" oninput="handle2(event)" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="stacked">Description
+                    <ion-text color="light">(optional)</ion-text>
+                </ion-label>
+                <ion-textarea></ion-textarea>
+            </ion-item>
+        </ion-list>
+        <div class="ion-padding">
+            <ion-button expand="block" type="submit" [(ngModel)]="des" class="ion-no-margin">Submit</ion-button>
+        </div>
+    </form>
+</ion-content>

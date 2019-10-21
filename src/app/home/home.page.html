@@ -1,14 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-button color="success" slot="start" (click)="onClik()">
+            <ion-icon name="add"></ion-icon>
+        </ion-button>
+        <ion-title>
+            Games List
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+    <ion-list>
+        <ion-item-sliding *ngFor="let game of games; let i = index">
+            <ion-item (click)="onClick(i)">
+                {{ game?.name }}
+            </ion-item>
+            <ion-item-options side="end" (ionSwipe)="delete(i)">
+                <ion-item-option color="danger" (click)="delete(i)" expandable>
+                    <ion-icon name="close"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 </ion-content>
